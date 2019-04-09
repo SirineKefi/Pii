@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="MenuDepSupervisorPane" prefHeight="611.0" prefWidth="1254.0" styleClass="custom-pane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.PFE.GUI.MenuDepSupervisorController">
+<VBox layoutY="36.0" prefHeight="581.0" prefWidth="214.0" styleClass="toolbar-container" stylesheets="@../../../../../resources/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXButton fx:id="categories_proposed" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleShowCategoryAction" prefHeight="88.0" prefWidth="214.0" styleClass="toolbar-button" text="Categories Proposed" textAlignment="CENTER">
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleShowInternshipFormsNoNoteAction" prefHeight="93.0" prefWidth="214.0" styleClass="toolbar-button" text="Internships Forms Without Marks" textAlignment="CENTER">     
+       </JFXButton>
+      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleShowInternshipFormsAction" prefHeight="98.0" prefWidth="213.0" styleClass="toolbar-button" text="Internships Forms " textAlignment="CENTER">
+      </JFXButton>
+      <JFXButton fx:id="btn_internship_acc_inacc" contentDisplay="TOP" layoutX="10.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleafficherpieAction" prefHeight="88.0" prefWidth="214.0" styleClass="toolbar-button" text="Internship Forms(Accepted/Inaccepted)" textAlignment="CENTER">
+      </JFXButton>
+      <JFXButton fx:id="btn_statistic" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleaffichergrapheAction" prefHeight="98.0" prefWidth="213.0" styleClass="toolbar-button" text="Employees Statistic" textAlignment="CENTER">
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleimgAction" prefHeight="90.0" prefWidth="214.0" styleClass="toolbar-button" text="About" textAlignment="CENTER">
+      </JFXButton>
+   </children>
+</VBox>
+   <AnchorPane layoutX="242.0" layoutY="108.0" prefHeight="565.0" prefWidth="1318.0">
+      <children>
+         <AnchorPane fx:id="CategoryPane" prefHeight="617.0" prefWidth="1318.0" styleClass="custom-pane" stylesheets="@../../../../../../../Library-Assistant-master/build/classes/resources/dark-theme.css" visible="false">
+            <children>
+               <TableView fx:id="tableCategory" layoutX="316.0" layoutY="74.0" prefHeight="470.0" prefWidth="486.0" AnchorPane.bottomAnchor="73.0" AnchorPane.leftAnchor="316.0" AnchorPane.rightAnchor="316.0" AnchorPane.topAnchor="74.0">
+                  <columns>
+                     <TableColumn fx:id="col_nameCategory" maxWidth="406.0" minWidth="80.0" prefWidth="406.0" text="Categories names" />
+                  </columns>
+                  <columnResizePolicy>
+                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
+               </TableView>
+               <Label alignment="CENTER" layoutY="14.0" prefHeight="25.0" prefWidth="808.0" styleClass="common-label" text="Categories List" textFill="#edbf07" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="14.0" />
+               <HBox alignment="CENTER" layoutX="252.0" layoutY="392.0" prefHeight="39.0" prefWidth="462.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <children>
+                     <JFXButton fx:id="btn_acceptCategory" onAction="#handleAcceptCategroyAction" prefHeight="39.0" prefWidth="235.0" text="Accept Category" />
+                     <JFXButton fx:id="btn_refuseCategroy" onAction="#handleRefuseCategoryAction" prefHeight="39.0" prefWidth="235.0" text="Refuse Category" />
+                  </children>
+               </HBox>
+            </children>
+         </AnchorPane>
+         <AnchorPane fx:id="IntershipFormUpdatePane" prefHeight="620.0" prefWidth="1318.0" styleClass="custom-pane" stylesheets="@Library-Assistant-master/build/classes/resources/dark-theme.css" visible="false">
+            <children>
+               <AnchorPane fx:id="IntershipFormPane1" layoutX="7.0" prefHeight="611.0" prefWidth="1311.0" styleClass="custom-pane" stylesheets="@Library-Assistant-master/build/classes/resources/dark-theme.css">
+                  <children>
+                     <TableView fx:id="tableInternshipForm1" onMouseClicked="#handleShowDetailsAction" prefHeight="429.0" prefWidth="1075.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="228.0" AnchorPane.topAnchor="62.0">
+                        <columns>
+                           <TableColumn fx:id="problematic" maxWidth="2800.0" prefWidth="126.0" text="Problematic" />
+                           <TableColumn fx:id="Responsable_Lname" maxWidth="2500.0" prefWidth="147.0" text="Resp Name" />
+                           <TableColumn fx:id="Responsable_mail" maxWidth="2500.0" prefWidth="171.0" text="Resp mail" />
+                           <TableColumn fx:id="createdon" prefWidth="188.0" text="createdon" />
+                           <TableColumn fx:id="defensedate" prefWidth="134.0" text="Defense Date" />
+                           <TableColumn fx:id="modifiedon" prefWidth="188.0" text="Modified On" />
+                           <TableColumn fx:id="title" maxWidth="2800.0" prefWidth="58.0" text="Title" />
+                        </columns>
+                        <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                        <contextMenu>
+                           <ContextMenu styleClass="table-context">
+                              <items>
+                                 <MenuItem mnemonicParsing="false" text="Refresh" />
+                                 <MenuItem mnemonicParsing="false" text="Edit" />
+                                 <MenuItem mnemonicParsing="false" text="Delete" />
+                              </items>
+                           </ContextMenu>
+                        </contextMenu>
+                     </TableView>
+                     <Label layoutX="454.0" layoutY="6.0" prefHeight="50.0" prefWidth="201.0" text="pfe missing one of the notes" />
+                  </children>
+               </AnchorPane>
+               <AnchorPane id="AnchorPane" fx:id="updateToSavePane" layoutY="-4.0" prefHeight="624.0" prefWidth="1269.0" styleClass="custom-pane" stylesheets="@../../../../../../../Library-Assistant-master/build/classes/resources/dark-theme.css" visible="false">
+                  <children>
+                     <JFXTextField fx:id="Sup_mark" disable="true" labelFloat="true" layoutX="276.0" layoutY="93.0" prefHeight="64.0" prefWidth="201.0" promptText="Supervisor Mark" />
+                     <JFXTextField fx:id="rep_mark" disable="true" labelFloat="true" layoutX="793.0" layoutY="93.0" prefHeight="64.0" prefWidth="201.0" promptText="Reporter Mark" />
+                     <JFXComboBox fx:id="sup_nom" layoutX="277.0" layoutY="210.0" onAction="#handlechoisirSupervisorAction" prefHeight="64.0" prefWidth="201.0" />
+                     <JFXComboBox fx:id="rep_nom" layoutX="793.0" layoutY="210.0" onAction="#handlechoisirReporterAction" prefHeight="64.0" prefWidth="201.0" />
+                     <JFXTextField fx:id="category" disable="true" labelFloat="true" layoutX="530.0" layoutY="42.0" prefHeight="64.0" prefWidth="201.0" promptText="Category" />
+                     <JFXTextField fx:id="Sup_mail" disable="true" labelFloat="true" layoutX="277.0" layoutY="343.0" prefHeight="64.0" prefWidth="201.0" promptText="Supervisor Email" />
+                     <JFXTextField fx:id="Rep_mail" disable="true" labelFloat="true" layoutX="793.0" layoutY="343.0" prefHeight="64.0" prefWidth="201.0" promptText="Reporter Email" />
+                     <JFXButton fx:id="btn_sup" disable="true" layoutX="310.0" layoutY="483.0" onAction="#handleSaveSupAction" text="Save Supervisor" />
+                     <JFXButton fx:id="btn_rep" disable="true" layoutX="832.0" layoutY="483.0" onAction="#handleSaveRepAction" text="Save Reporter" />
+                     <JFXTextField fx:id="secret" disable="true" labelFloat="true" layoutX="-5.0" layoutY="38.0" prefHeight="64.0" prefWidth="201.0" promptText="Supervisor Mark" visible="false" />
+                     <MenuBar layoutX="-5.0" layoutY="-53.0" prefHeight="50.0" prefWidth="1022.0">
+                        <menus>
+                           <Menu mnemonicParsing="false" text="Option">
+                              <items>
+                                 <MenuItem fx:id="go_back_internship_no_note" mnemonicParsing="false" onAction="#handlego_back_intershipAction" text="Go back" />
+                              </items>
+                           </Menu>
+                        </menus>
+                     </MenuBar>
+                     <Label alignment="CENTER" prefHeight="25.0" prefWidth="808.0" styleClass="common-label" text="Internships list" />
+                  </children>
+               </AnchorPane>
+            </children>
+         </AnchorPane>
+         <AnchorPane fx:id="IntershipFormPane" prefHeight="611.0" prefWidth="1318.0" styleClass="custom-pane" stylesheets="@../../../../../../../Library-Assistant-master/build/classes/resources/dark-theme.css" visible="false">
+            <children>
+               <MenuBar layoutX="-7.0" layoutY="-55.0" prefHeight="50.0" prefWidth="1261.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-55.0">
+                  <menus>
+                     <Menu mnemonicParsing="false" text="Filter">
+                        <items>
+                           <MenuItem fx:id="btn_noReporter" mnemonicParsing="false" onAction="#handleShowFormsNoReporterAction" text="without Reporter" />
+                           <MenuItem fx:id="btn_noSupervisor" mnemonicParsing="false" onAction="#handleShowFormsNoSupervisorAction" text="without Supervisor" />
+                        </items>
+                     </Menu>
+                  </menus>
+               </MenuBar>
+               <AnchorPane fx:id="Paneall" layoutY="-7.0" prefHeight="624.0" prefWidth="1278.0">
+                  <children>
+                     <TableView fx:id="tableInternshipForm" prefHeight="429.0" prefWidth="1075.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="228.0" AnchorPane.topAnchor="62.0">
+                        <columns>
+                           <TableColumn fx:id="problematic_s" maxWidth="2800.0" prefWidth="126.0" text="problematic" />
+                           <TableColumn fx:id="Responsable_Lname_s" maxWidth="2500.0" prefWidth="147.0" text="Resp Name" />
+                           <TableColumn fx:id="Responsable_mail_s" maxWidth="2500.0" prefWidth="171.0" text="Resp mail" />
+                           <TableColumn fx:id="createdon_s" prefWidth="188.0" text="createdon" />
+                           <TableColumn fx:id="defensedate_s" prefWidth="134.0" text="Defense Date" />
+                           <TableColumn fx:id="modifiedon_s" prefWidth="188.0" text="Modified On" />
+                           <TableColumn fx:id="title_s" maxWidth="2800.0" prefWidth="58.0" text="title" />
+                        </columns>
+                        <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                        <contextMenu>
+                           <ContextMenu styleClass="table-context">
+                              <items>
+                                 <MenuItem mnemonicParsing="false" text="Refresh" />
+                                 <MenuItem mnemonicParsing="false" text="Edit" />
+                                 <MenuItem mnemonicParsing="false" text="Delete" />
+                              </items>
+                           </ContextMenu>
+                        </contextMenu>
+                     </TableView>
+                     <Label layoutX="433.0" layoutY="14.0" prefHeight="39.0" prefWidth="213.0" text="PFE Form List" />
+                  </children>
+               </AnchorPane>
+               <AnchorPane fx:id="paneNoReporter" layoutX="-1.0" layoutY="56.0" prefHeight="546.0" prefWidth="1243.0" visible="false">
+                  <children>
+                     <Label layoutX="440.0" layoutY="6.0" text="PFE Form List Missing a Reporter" />
+                     <TableView fx:id="tableInternshipForm12" layoutX="6.0" layoutY="21.0" onMouseClicked="#handleAutreaffAction" prefHeight="445.0" prefWidth="824.0">
+                        <columns>
+                           <TableColumn fx:id="title1" maxWidth="2800.0" prefWidth="58.0" text="title" />
+                           <TableColumn fx:id="problematic1" maxWidth="2800.0" prefWidth="126.0" text="problematic" />
+                           <TableColumn fx:id="Responsable_Lname1" maxWidth="2500.0" prefWidth="147.0" text="Resp Name" />
+                           <TableColumn fx:id="Responsable_mail1" maxWidth="2500.0" prefWidth="171.0" text="Resp mail" />
+                           <TableColumn fx:id="createdon1" prefWidth="188.0" text="createdon" />
+                           <TableColumn fx:id="defensedate1" prefWidth="134.0" text="Defense Date" />
+                           <TableColumn fx:id="modifiedon1" prefWidth="188.0" text="Modified On" />
+                        </columns>
+                        <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                        <contextMenu>
+                           <ContextMenu styleClass="table-context">
+                              <items>
+                                 <MenuItem mnemonicParsing="false" text="Refresh" />
+                                 <MenuItem mnemonicParsing="false" text="Edit" />
+                                 <MenuItem mnemonicParsing="false" text="Delete" />
+                              </items>
+                           </ContextMenu>
+                        </contextMenu>
+                     </TableView>
+                     <JFXButton fx:id="btn_assign_reporter" layoutX="349.0" layoutY="482.0" onAction="#handleAssignReporterAction" prefHeight="39.0" prefWidth="235.0" text="Assign a Reporter" />
+                     <AnchorPane fx:id="paneAssignReporter" layoutX="855.0" layoutY="54.0" prefHeight="412.0" prefWidth="280.0" visible="false">
+                        <children>
+                           <JFXButton fx:id="btn_save_reporter" disable="true" layoutX="23.0" layoutY="303.0" onAction="#handleSaveReporterAction" prefHeight="39.0" prefWidth="235.0" text="Save" />
+                           <JFXComboBox fx:id="combo_emp" layoutX="42.0" layoutY="69.0" onAction="#handleselectEmployeAction" prefHeight="39.0" prefWidth="224.0" />
+                           <JFXTextField fx:id="category_s" disable="true" editable="false" labelFloat="true" layoutX="50.0" layoutY="14.0" promptText="Category" />
+                           <JFXTextField fx:id="mail" disable="true" editable="false" labelFloat="true" layoutX="50.0" layoutY="135.0" promptText="E-mail" />
+                           <JFXTextField fx:id="role" disable="true" editable="false" labelFloat="true" layoutX="51.0" layoutY="199.0" promptText="Role" />
+                           <JFXTextField fx:id="secret_s" disable="true" editable="false" labelFloat="true" layoutX="51.0" layoutY="271.0" promptText="secret" visible="false" />
+                           <JFXTextField fx:id="secret_emp" disable="true" editable="false" labelFloat="true" promptText="secret" visible="false" />
+                           <JFXButton fx:id="btn_sms_r" disable="true" layoutX="23.0" layoutY="351.0" onAction="#handleSendSmsReporterAction" prefHeight="39.0" prefWidth="235.0" text="Send Sms" />
+                        </children>
+                     </AnchorPane>
+                  </children>
+               </AnchorPane>
+               <AnchorPane fx:id="paneNoSupervisor" layoutX="-6.0" layoutY="56.0" prefHeight="546.0" prefWidth="1254.0" visible="false">
+                  <children>
+                     <TableView fx:id="tableInternshipForm11" layoutX="6.0" layoutY="21.0" onMouseClicked="#handleAutreaff2Action" prefHeight="445.0" prefWidth="824.0">
+                        <columns>
+                           <TableColumn fx:id="title11" maxWidth="2800.0" prefWidth="58.0" text="title" />
+                           <TableColumn fx:id="problematic11" maxWidth="2800.0" prefWidth="126.0" text="problematic" />
+                           <TableColumn fx:id="Responsable_Lname11" maxWidth="2500.0" prefWidth="147.0" text="Resp Name" />
+                           <TableColumn fx:id="Responsable_mail11" maxWidth="2500.0" prefWidth="171.0" text="Resp mail" />
+                           <TableColumn fx:id="createdon11" prefWidth="188.0" text="createdon" />
+                           <TableColumn fx:id="defensedate11" prefWidth="134.0" text="Defense Date" />
+                           <TableColumn fx:id="modifiedon11" prefWidth="188.0" text="Modified On" />
+                        </columns>
+                        <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                        <contextMenu>
+                           <ContextMenu styleClass="table-context">
+                              <items>
+                                 <MenuItem mnemonicParsing="false" text="Refresh" />
+                                 <MenuItem mnemonicParsing="false" text="Edit" />
+                                 <MenuItem mnemonicParsing="false" text="Delete" />
+                              </items>
+                           </ContextMenu>
+                        </contextMenu>
+                     </TableView>
+                     <JFXButton fx:id="btn_assign_supervisor" layoutX="326.0" layoutY="480.0" onAction="#handleAssignSupervisorAction" prefHeight="39.0" prefWidth="235.0" text="Assign a Supervisor" />
+                     <AnchorPane fx:id="paneAssignSupervisor" layoutX="840.0" layoutY="29.0" prefHeight="429.0" prefWidth="325.0" visible="false">
+                        <children>
+                           <JFXButton fx:id="btn_save_supervisor" disable="true" layoutX="45.0" layoutY="329.0" onAction="#handleSaveSupervisorAction" prefHeight="39.0" prefWidth="235.0" text="Save" />
+                           <JFXComboBox fx:id="combo_emp1" layoutX="51.0" layoutY="97.0" onAction="#handleselectEmploye1Action" prefHeight="39.0" prefWidth="224.0" />
+                           <JFXTextField fx:id="category1" disable="true" editable="false" labelFloat="true" layoutX="73.0" layoutY="39.0" promptText="Category" />
+                           <JFXTextField fx:id="mail1" disable="true" editable="false" labelFloat="true" layoutX="73.0" layoutY="159.0" promptText="E-mail" />
+                           <JFXTextField fx:id="role1" disable="true" editable="false" labelFloat="true" layoutX="73.0" layoutY="221.0" promptText="Role" />
+                           <JFXTextField fx:id="secret1" disable="true" editable="false" labelFloat="true" layoutX="73.0" layoutY="316.0" promptText="secret" visible="false" />
+                           <JFXTextField fx:id="secret_emp1" disable="true" editable="false" labelFloat="true" layoutX="73.0" layoutY="279.0" promptText="secret" visible="false" />
+                           <JFXButton fx:id="btn_sms_s" disable="true" layoutX="45.0" layoutY="376.0" onAction="#handleSendSmsSupervisorAction" prefHeight="39.0" prefWidth="235.0" text="Send Sms" />
+                        </children>
+                     </AnchorPane>
+                     <Label text="PFE Form List Missing a Supervisor" />
+                  </children>
+               </AnchorPane>
+            </children>
+         </AnchorPane>
+         <AnchorPane fx:id="statiistic_pane" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1113.0" visible="false">
+            <children>
+               <BarChart fx:id="barChart" categoryGap="200.0" layoutX="113.0" layoutY="75.0" prefHeight="470.0" prefWidth="786.0">
+                  <xAxis>
+                     <CategoryAxis fx:id="categoryAxis" side="BOTTOM" tickLabelFill="#fcfcfc">
+                        <tickLabelFont>
+                           <Font size="15.0" />
+                        </tickLabelFont>
+                     </CategoryAxis>
+                  </xAxis>
+                  <yAxis>
+                     <NumberAxis fx:id="numberAxis" side="LEFT" tickLabelFill="WHITE">
+                        <tickLabelFont>
+                           <Font size="15.0" />
+                        </tickLabelFont>
+                     </NumberAxis>
+                  </yAxis>
+               </BarChart>
+               <Label layoutX="430.0" layoutY="38.0" text="Employees supervisions" />
+            </children>
+         </AnchorPane>
+         <AnchorPane fx:id="piechartpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="1318.0">
+            <children>
+               <Label layoutX="234.0" layoutY="84.0" text="Internships accepted via inaccepted" />
+               <PieChart fx:id="piechart" layoutX="59.0" />
+               <JFXButton layoutX="138.0" layoutY="460.0" onAction="#handleShowpfeAcceptedAction" prefHeight="64.0" prefWidth="154.0" text=" PFE Form Accepted" />
+               <JFXButton layoutX="360.0" layoutY="460.0" onAction="#handleShowpfeInacceptedAction" prefHeight="64.0" prefWidth="154.0" text=" PFE Form Inaccepted" />
+               <TableView fx:id="table_inacc_acc_pfe" layoutX="638.0" layoutY="31.0" prefHeight="338.0" prefWidth="450.0">
+                 <columns>
+                   <TableColumn fx:id="title_in_a" prefWidth="120.0" text="Title" />
+                   <TableColumn fx:id="desc_i_a" prefWidth="157.0" text="Description" />
+                     <TableColumn fx:id="prob_i_a" prefWidth="172.0" text="Problematic" />
+                 </columns>
+               </TableView>
+            </children>
+         </AnchorPane>
+      </children>
+   </AnchorPane>
+</AnchorPane>
